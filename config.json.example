@@ -6,7 +6,7 @@
     "description": "九成新，充电线包装盒齐全，无明显磕碰，卖家信用优秀",
     "max_pages": 10,
     "personal_only": true,
-    "min_price": "8000",
+    "min_price": "8018",
     "max_price": "2000",
     "cron": null,
     "ai_prompt_base_file": "prompts/base_prompt.txt",

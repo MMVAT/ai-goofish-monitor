@@ -25,3 +25,18 @@ def test_resolve_browser_channel_uses_msedge_locally_when_requested(monkeypatch)
     scraper = _load_scraper(monkeypatch, login_is_edge=True, running_in_docker=False)
 
     assert scraper._resolve_browser_channel() == "msedge"
+
+
+def test_build_extra_headers_excludes_browser_managed_fetch_metadata(monkeypatch):
+    scraper = _load_scraper(monkeypatch, login_is_edge=False, running_in_docker=False)
+
+    headers = scraper._build_extra_headers(
+        {
+            "User-Agent": "snapshot-agent",
+            "Sec-Fetch-Site": "none",
+            "Sec-Fetch-Mode": "navigate",
+            "Sec-Fetch-Dest": "document",
+        }
+    )
+
+    assert headers == {"User-Agent": "snapshot-agent"}

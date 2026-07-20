@@ -1,3 +1,29 @@
+[project]
+name = "ai-goofish-monitor"
+version = "0.1.0"
+description = "Your project description"
+readme = "README.md"          # 如果有 README 文件
+requires-python = ">=3.10"    # 根据你的 Python 版本调整
+dependencies = [
+    "fastapi>=0.100.0",
+    "uvicorn[standard]>=0.23.0",
+    "jinja2>=3.0.0",
+    "aiofiles>=23.0.0",       # 如果用到静态文件
+    "python-multipart>=0.0.6", # 如果处理表单/文件上传
+    # 其他依赖根据需要添加
+    "apscheduler>=3.11.3",
+    "openai>=2.46.0",
+    "requests>=2.34.2",
+    "pydantic-settings>=2.14.2",
+    "playwright>=1.61.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
 [tool.pytest.ini_options]
 addopts = "-v --tb=short"
 testpaths = ["tests"]
